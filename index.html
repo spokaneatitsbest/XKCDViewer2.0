@@ -2,6 +2,8 @@
 <title>
 XKCD Viewer 2.0
 </title>
+ <?php header("Access-Control-Allow-Origin: *");
+          
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
@@ -31,9 +33,8 @@ update();
 }
 function update() {
 document.getElementById("comic").src = "https://xkcd.com/" + comic;
-console.log(window.frames['comic'].contentDocument.getElementById('comic'));
-document.getElementById("div1").innerHTML = window.frames['comic'].contentDocument.getElementById('comic');
-document.getElementById("num").value = comic;
+console.log(document,frames[0].document.getElementById('comic'));
+document.getElementById("div1").innerHTML = document,frames[0].document.getElementById('comic');
 console.log(comic);
 //Cookies.set('comic', comic);
 }
