@@ -1,0 +1,102 @@
+<head>
+<title>
+XKCD Viewer 2.0
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+ <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+ <link rel="icon" href="">
+</head>
+<body >
+<script>
+//var comic = prompt("num");
+ var comic = 1
+getNum();
+function getNum() {
+if (comic == null || comic == "" ) {
+//comic = Cookies.get('comic');
+} else {
+comic = document.getElementById("num").value;
+update();
+}
+}
+function up() {
+comic++;
+update();
+}
+function down() {
+comic = comic-1
+update();
+}
+function update() {
+document.getElementById("comic").src = "https://xkcd.com/comics/" + comic;
+console.log(window.frames['comic'].contentDocument.getElementById('comic'));
+document.getElementById("div1").innerHTML = window.frames['comic'].contentDocument.getElementById('comic');
+document.getElementById("num").value = comic;
+console.log(comic);
+//Cookies.set('comic', comic);
+}
+//var comic = Cookies.get('comic');
+// function reloadCookie() {
+ if (0 < comic < 9999999) {
+  
+ //document.getElementById("num").value = Cookies.get('comic');
+// console.log("successfully reloaded cookies");
+   update();
+   window.setTimeout(update(), 5000);
+  } else { 
+   comic = 1; 
+   update();
+   window.setTimeout(update(), 5000);      
+         }
+ 
+  
+//console.log(Cookies.get('comic'));
+//662
+</script>
+<script> 
+/*function toggleScroll() {
+ var scrolling = document.getElementById("comic").scrolling
+ if (scrolling = "no") {
+  document.getElementById("comic").scrolling = "yes"
+ } else {
+ document.getElementById("comic").scrolling = "no"
+ }	
+}*/
+</script>
+<style>
+body {
+background-color: black;
+text-align: center;
+vertical-align: middle;
+width: auto;
+outline: none;
+}
+</style>
+
+<h1 style="text-align:center; color: white;">
+XKCD Viewer 2.0
+</h1>
+
+<div>
+<button class="control" id="control" onclick="up()">^</button>
+<input type="text" class="control" style="width: 45; text-align: center;" id="num"></input> 
+<button class="control" id="control" onclick="down()">v</button>
+<p></p>
+<button class="control" id="control" onclick="getNum()">Set Number</button>
+</div>
+<p></p>
+
+<iframe id="comic" style="outline: none;  border: 0;" src="" width="100%" height="130px" border="no" scrolling="no"></iframe> 
+<div id="div1"></div>
+<script>
+// reloadCookie();
+confirm("If comic has not loaded, please enable unsafe scripts! There may also be no comic with the number requested!");
+</script>
+<p style="align:center; color:white">
+ If comic has not loaded, please enable unsafe scripts! <br>
+ There may also be no comic with the number requested! <br>
+ (to find out if the second is true, highlight all text on page) <br>
+</p>
+</body>
