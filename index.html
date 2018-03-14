@@ -34,6 +34,7 @@ update();
 function update() {
 document.getElementById("comic").src = "https://xkcd.com/" + comic;
 console.log(document,frames[0].document.getElementById('comic'));
+console.log(window.frames[0].document.getElementById('comic'));
 document.getElementById("div1").innerHTML = document,frames[0].document.getElementById('comic');
 console.log(comic);
 //Cookies.set('comic', comic);
