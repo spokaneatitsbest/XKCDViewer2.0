@@ -30,7 +30,7 @@ comic = comic-1
 update();
 }
 function update() {
-document.getElementById("comic").src = "https://xkcd.com/comics/" + comic;
+document.getElementById("comic").src = "https://xkcd.com/" + comic;
 console.log(window.frames['comic'].contentDocument.getElementById('comic'));
 document.getElementById("div1").innerHTML = window.frames['comic'].contentDocument.getElementById('comic');
 document.getElementById("num").value = comic;
